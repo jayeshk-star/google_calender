@@ -1,0 +1,12 @@
+.calender_conatin {
+  min-height: 100vh;
+  width: 50vw;
+  background-color: red;
+  display: flex;
+}
+.Todo_conatain {
+  min-height: 100vh;
+  width: 50vw;
+  background-color: blueviolet;
+  display: flex;
+}
