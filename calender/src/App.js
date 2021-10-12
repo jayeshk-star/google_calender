@@ -9,11 +9,8 @@ function App() {
       <h1 style={{ color: "orange", textAlign: "center" }}>
         Add The Event Here
       </h1>
-      <div className="calender_contain">
+      <div>
         <Calender />
-      </div>
-      <div className="Todo_contain">
-        <Listcard />
       </div>
     </div>
   );
