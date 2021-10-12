@@ -1,39 +1,64 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
 import './Calender.css'
 
 const Calender = () => {
-  const [value, onChange] = useState(new Date())
+  const [date, setDate] = useState(new Date())
+  const [title, setTitle] = useState('')
+  const [desc, setDesc] = useState('')
+  const [Data, setData] = useState([])
+  const [clicked, setclick] = useState(false)
+
+  const handlesubmit = () => {
+    var fullDay = date.getDate()
+    var month = date.getMonth()
+    var Year = date.getFullYear()
+    var fullday = fullDay + '/' + month + '/' + Year
+
+    const Eventdata = {
+      Date: fullday,
+      Title: title,
+      Description: desc
+    }
+    setData([...Data, Eventdata])
+    localStorage.setItem('eventdata', JSON.stringify(Data))
+    setTitle('')
+    setDesc('')
+  }
 
   return (
     <div>
       <div className='calenderbody'>
-        <Calendar
-          onChange={onChange}
-          value={value}
-          className='calenderContain'
-        />
+        <Calendar onChange={setDate} value={date} className='calenderContain' />
       </div>
       <div className='calendertodo'>
         <div className='form'>
-          <div class='form-group'>
-            <label for='exampleFormControlInput1'>Title</label>
+          <div className='form-group'>
+            <label>Title</label>
             <input
               type='text'
-              class='form-control'
+              onChange={e => setTitle(e.target.value)}
+              value={title}
+              className='form-control'
               id='exampleFormControlInput1'
               placeholder='title'
             />
-            <div class='form-group'>
-              <label for='exampleFormControlTextarea1'>Description</label>
+            <div className='form-group'>
+              <label>Description</label>
               <textarea
-                class='form-control'
+                onChange={e => setDesc(e.target.value)}
+                value={desc}
+                className='form-control'
                 id='exampleFormControlTextarea1'
                 rows='4'
               ></textarea>
             </div>
-            <button type='button' class='btn btn-primary btn-lg btn-block'>
+            <button
+              type='button'
+              className='btn btn-primary btn-lg btn-block'
+              onClick={handlesubmit}
+            >
               Add Event
             </button>
           </div>
