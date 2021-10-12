@@ -1,0 +1,27 @@
+.calenderbody {
+  min-height: 50vh;
+  width: 70%;
+  background-color: rgb(235, 235, 232);
+  box-shadow: 1px 3px 2px 1px black;
+  margin: 2% 15%;
+  position: relative;
+}
+.calenderContain {
+  position: absolute;
+  padding: auto;
+  background-color: rgb(247, 142, 93);
+  width: 100%;
+  height: auto;
+}
+.calendertodo {
+  min-height: 30vh;
+  width: 70%;
+  border-radius: 20px;
+  background-color: rgb(235, 235, 232);
+  box-shadow: 1px 3px 2px 1px black;
+  margin: 2% 15%;
+  position: relative;
+}
+.calendertodo label {
+  margin-left: 10px;
+}
